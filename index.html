@@ -32,7 +32,6 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
         
-        // Manual Lucide Icon implementation for browser compatibility
         const Icon = ({ name, size = 24, className = "" }) => {
             useEffect(() => {
                 if (window.lucide) {
@@ -154,17 +153,20 @@
             return (
                 <div className="fade-in">
                     <NavigationMenu />
-                    <header className="relative h-screen flex items-center justify-center overflow-hidden">
+                    <header className="relative h-screen flex items-center justify-center overflow-hidden bg-aegean">
                         <div className="absolute inset-0 z-0">
                             <div className="absolute inset-0 bg-black/30 z-10"></div>
-                            {/* Updated to high-res image filename and restored cinematic zoom */}
                             <img 
-                                src="Cape-Amarandos-Skopelos-Greece Topaz Gigapixel 2x scale.png" 
+                                src="Cape-Amarandos-Skopelos-Greece Topaz Gigapixel 2x scale.jpg" 
                                 className="w-full h-full object-cover scale-110 transition-transform duration-[3s]" 
                                 alt="Cape Amarandos"
                                 onError={(e) => {
-                                    e.target.src = "https://skopelos.com/wp-content/uploads/2019/08/amarandos-skopelos-9.jpg";
-                                    e.target.onerror = null;
+                                    // Fallback to original image if the high-res one isn't available yet
+                                    e.target.src = "Cape-Amarandos-Skopelos-Greece.jpg";
+                                    e.target.onerror = () => {
+                                        // Final absolute fallback to an external link
+                                        e.target.src = "https://skopelos.com/wp-content/uploads/2019/08/amarandos-skopelos-9.jpg";
+                                    };
                                 }}
                             />
                         </div>
