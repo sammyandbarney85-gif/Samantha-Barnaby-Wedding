@@ -85,7 +85,7 @@
                 
                 const templateParams = {
                     from_name: formData.mainContact,
-                    guest_list: formData.allGuests,
+                    all_guests: formData.allGuests,
                     attendance: formData.attending === 'yes' ? 'Happily Attending' : 'Regretfully Declining',
                     dietary: formData.dietary || 'None specified',
                     song_request: formData.song || 'None provided'
@@ -161,7 +161,7 @@
             );
         };
 
-         // --- PAGE COMPONENTS ---
+        // --- PAGE COMPONENTS ---
 
         const TravelPage = () => (
             <div className="fade-in min-h-screen bg-stone-50">
@@ -290,7 +290,7 @@
                     <header className="relative h-screen flex items-center justify-center overflow-hidden bg-stone-900">
                         <div className="absolute inset-0 z-0">
                             <div className="absolute inset-0 bg-black/40 z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1516483642775-9a5cf2df7fb1?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover scale-105" alt="Skopelos" />
+                            <img src="Cape-Amarandos-Skopelos-Greece Topaz Gigapixel 2x scale.jpg" className="w-full h-full object-cover scale-105" alt="Cape Amarandos" />
                         </div>
                         <div className="relative z-20 text-center text-white px-6">
                             <p className="text-[10px] uppercase tracking-[0.5em] mb-8 font-bold opacity-90">Skopelos, Greece</p>
@@ -304,7 +304,7 @@
 
                     <section className="py-32 px-6 container mx-auto max-w-5xl">
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-6xl mb-6 font-normal">The Celebration</h2>
+                            <h2 className="text-4xl md:text-6xl mb-6 font-normal">The Weekend</h2>
                             <p className="text-stone-400 italic text-lg tracking-wide uppercase text-xs font-bold">May 25th — May 27th</p>
                         </div>
                         
