@@ -65,7 +65,7 @@
         const Footer = () => (
             <footer className="py-16 bg-[#00b4b4] text-white text-center">
                 <p className="text-2xl tracking-[0.3em] font-normal mb-3 uppercase">S & B</p>
-                <p className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-70">Updated March 2026</p>
+                <p className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-70">Updated 16 May 2026</p>
             </footer>
         );
 
@@ -395,32 +395,26 @@
             const IMAGE_BASE = "images/";
 
             const swBeaches = [
-                { name: "Loutraki", desc: "The local choice for those staying at the hotel." },
-                { name: "Armenopetra", desc: "A quiet haven away from the crowds." },
-                { name: "Paraiso", desc: "Beach bar and adventure playground at sea!" },
-                { name: "Hovolo", desc: "Roughly translates to 'Grill' because of the white rocks directly behind you." },
-                { name: "Ftelia", desc: "A new beach bar with grassy sunbeds." },
-                { name: "Kastani", desc: "The Mamma Mia beach with sand and a beach bar - perfect for sunsets over the sea." },
-                { name: "Milia", desc: "An expansive beach with three distinct characters - a true favourite." },
-                { name: "Panormos", desc: "A sheltered port with minimal walking and a wealth of bars and tavernas." },
-                { name: "Limnonari", desc: "Beautiful, sheltered, sandy beach, but best in the early afternoon for the sun." },
-                { name: "Agnontas", desc: "A sheltered port with one of the island's best taverna's right on the beach." },
-                { name: "Stafilos", desc: "A southern-facing, sandy crescent beach down a steep hill." },
-                { name: "Velanio", desc: "Skopelos' favourite nudist beach. Get your kit off!" }
+                { name: "Loutraki", img: "Beach_01_Loutraki.jpg", desc: "The local choice for those staying at the hotel." },
+                { name: "Armenopetra", img: "Beach_02_Armenopetra.jpg", desc: "A quiet haven away from the crowds." },
+                { name: "Paraiso", img: "Beach_03_Paraiso.jpg", desc: "Beach bar and adventure playground at sea!" },
+                { name: "Hovolo", img: "Beach_04_Hovolo.jpg", desc: "Roughly translates to 'Grill' because of the white rocks directly behind you." },
+                { name: "Ftelia", img: "Beach_05_Ftelia.jpg", desc: "A new beach bar with grassy sunbeds." },
+                { name: "Kastani", img: "Beach_06_Kastani.jpg", desc: "The Mamma Mia beach with sand and a beach bar - perfect for sunsets over the sea." },
+                { name: "Milia", img: "Beach_07_Milia.jpg", desc: "An expansive beach with three distinct characters - a true favourite." },
+                { name: "Panormos", img: "Beach_08_Panormos.jpg", desc: "A sheltered port with minimal walking and a wealth of bars and tavernas." },
+                { name: "Limnonari", img: "Beach_09_Limnonari.jpg", desc: "Beautiful, sheltered, sandy beach, but best in the early afternoon for the sun." },
+                { name: "Agnontas", img: "Beach_10_Agnontas.jpg", desc: "A sheltered port with one of the island's best taverna's right on the beach." },
+                { name: "Stafilos", img: "Beach_11_Stafilos.jpg", desc: "A southern-facing, sandy crescent beach down a steep hill." },
+                { name: "Velanio", img: "Beach_12_Velanio.jpg", desc: "Skopelos' favourite nudist beach. Get your kit off!" }
             ];
 
             const neBeaches = [
-                { name: "Perivoliou", desc: "Probably the most beautiful and spectacular beach on the island." },
-                { name: "Spilia", desc: "Completely protected, shallow and calm." },
-                { name: "Agios Ioannis", desc: "The chapel from Mamma Mia has its own small but popular beach." },
-                { name: "Glysteri", desc: "A fantastic beach bar with masses of space and small shingles." }
+                { name: "Perivoliou", img: "Beach_13_Perivoliou.jpg", desc: "Probably the most beautiful and spectacular beach on the island." },
+                { name: "Spilia", img: "Beach_14_Spilia.jpg", desc: "Completely protected, shallow and calm." },
+                { name: "Agios Ioannis", img: "Beach_15_Agios_Ioannis.jpg", desc: "The chapel from Mamma Mia has its own small but popular beach." },
+                { name: "Glysteri", img: "Beach_16_Glysteri.jpg", desc: "A fantastic beach bar with masses of space and small shingles." }
             ];
-
-            const getImagePath = (name, index, offset = 0) => {
-                const id = String(index + 1 + offset).padStart(2, '0');
-                const cleanName = name.replace(/\s+/g, '_'); // Replaces spaces with underscores
-                return `${IMAGE_BASE}Beach_${id}_${cleanName}.jpg`;
-            };
 
             return (
                 <div className="fade-in min-h-screen bg-[#fcfbf9]">
@@ -469,13 +463,13 @@
                                         <div key={i} className="group cursor-default">
                                             <div className="relative h-64 mb-6 rounded-[2rem] overflow-hidden shadow-md">
                                                 <img 
-                                                    src={getImagePath(beach.name, i)} 
+                                                    src={IMAGE_BASE + beach.img} 
                                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                                                     alt={beach.name} 
-                                                    onerror="this.style.backgroundColor='#f3f4f6'"
+                                                    onerror="this.src='https://placehold.co/600x400/00b4b4/white?text=Beach+Image'"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                                                    <span className="text-white text-xs font-bold uppercase tracking-widest">View on Map</span>
+                                                    <span className="text-white text-xs font-bold uppercase tracking-widest">View Details</span>
                                                 </div>
                                             </div>
                                             <h4 className="text-xl font-normal text-stone-800 mb-2">{beach.name}</h4>
@@ -499,10 +493,10 @@
                                         <div key={i} className="flex gap-8 items-start group">
                                             <div className="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border-2 border-white/10">
                                                 <img 
-                                                    src={getImagePath(beach.name, i, swBeaches.length)} 
+                                                    src={IMAGE_BASE + beach.img} 
                                                     className="w-full h-full object-cover" 
                                                     alt={beach.name} 
-                                                    onerror="this.style.backgroundColor='#374151'"
+                                                    onerror="this.src='https://placehold.co/200x200/374151/white?text=Beach'"
                                                 />
                                             </div>
                                             <div>
