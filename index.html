@@ -392,7 +392,7 @@
         );
 
     const TipsPage = () => {
-            const IMAGE_BASE = "images/";
+            const IMAGE_BASE = "https://raw.githubusercontent.com/sammyandbarney85/sammyandbarney85.github.io/main/";
 
             const swBeaches = [
                 { name: "Loutraki", img: "Beach_01_Loutraki.jpg", desc: "The local choice for those staying at the hotel." },
@@ -466,7 +466,7 @@
                                                     src={IMAGE_BASE + beach.img} 
                                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                                                     alt={beach.name} 
-                                                    onerror="this.src='https://placehold.co/600x400/00b4b4/white?text=Beach+Image'"
+                                                    onError={(e) => { e.target.src='https://placehold.co/600x400/00b4b4/white?text=Beach+Image' }}
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                                                     <span className="text-white text-xs font-bold uppercase tracking-widest">View Details</span>
@@ -496,7 +496,7 @@
                                                     src={IMAGE_BASE + beach.img} 
                                                     className="w-full h-full object-cover" 
                                                     alt={beach.name} 
-                                                    onerror="this.src='https://placehold.co/200x200/374151/white?text=Beach'"
+                                                    onError={(e) => { e.target.src='https://placehold.co/200x200/374151/white?text=Beach' }}
                                                 />
                                             </div>
                                             <div>
